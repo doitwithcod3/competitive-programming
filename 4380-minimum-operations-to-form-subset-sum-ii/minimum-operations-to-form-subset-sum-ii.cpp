@@ -28,8 +28,8 @@ public:
             dp[index] = dp[index - 1];
             for (auto it : findall(nums[index - 1], sum)) {
                 int num = it.first, val = it.second;
-                for (int s = 1; s <= sum; ++s) {
-                    if (0 <= s - num) dp[index][s] = min(dp[index][s], dp[index - 1][s - num] + val);
+                for (int s = num; s <= sum; ++s) {
+                    dp[index][s] = min(dp[index][s], dp[index - 1][s - num] + val);
                 }
             }
         }
