@@ -13,8 +13,8 @@ public:
             for (int j = 1; j <= m; ++j) {
                 two[j] = (one[j] + 0LL + (s[i - 1] == t[j - 1] ? one[j - 1] : 0)) % mod;
             }
-            one = two;
+            swap(one, two);
         }
-        return two[m];
+        return one[m];
     }
 };
